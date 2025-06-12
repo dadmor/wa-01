@@ -1,4 +1,4 @@
-// src/pages/api/hooks.ts
+// src/pages/api/hooks.ts - rozszerzone o useFetchSingle
 import { supabase } from '@/utility';
 import { 
   useQuery, 
@@ -26,6 +26,69 @@ export function useFetch<T = any>(
       if (error) throw error;
       return data || [];
     }
+  });
+}
+
+/**
+ * useFetchSingle - pobiera pojedynczy rekord z podanej tabeli po ID
+ * @template T
+ * @param {string} key - klucz zapytania React Query
+ * @param {string} table - nazwa tabeli w Supabase
+ * @param {string} id - ID rekordu do pobrania
+ * @returns {UseQueryResult<T | null, Error>}
+ */
+export function useFetchSingle<T = any>(
+  key: string, 
+  table: string,
+  id: string | undefined
+): UseQueryResult<T | null, Error> {
+  return useQuery({
+    queryKey: [key, id],
+    queryFn: async (): Promise<T | null> => {
+      if (!id) return null;
+      
+      const { data, error } = await supabase
+        .from(table)
+        .select('*')
+        .eq('id', id)
+        .single();
+      
+      if (error) throw error;
+      return data;
+    },
+    enabled: !!id, // Zapytanie wykonuje się tylko gdy ID jest dostępne
+  });
+}
+
+/**
+ * useFetchFiltered - pobiera rekordy z podanej tabeli z filtrem
+ * @template T
+ * @param {string} key - klucz zapytania React Query
+ * @param {string} table - nazwa tabeli w Supabase
+ * @param {string} column - nazwa kolumny do filtrowania
+ * @param {string} value - wartość do filtrowania
+ * @returns {UseQueryResult<T[], Error>}
+ */
+export function useFetchFiltered<T = any>(
+  key: string, 
+  table: string,
+  column: string,
+  value: string | undefined
+): UseQueryResult<T[], Error> {
+  return useQuery({
+    queryKey: [key, column, value],
+    queryFn: async (): Promise<T[]> => {
+      if (!value) return [];
+      
+      const { data, error } = await supabase
+        .from(table)
+        .select('*')
+        .eq(column, value);
+      
+      if (error) throw error;
+      return data || [];
+    },
+    enabled: !!value, // Zapytanie wykonuje się tylko gdy value jest dostępne
   });
 }
 
@@ -72,7 +135,7 @@ export function useUpdate<T = any>(
       const { data, error } = await supabase
         .from(table)
         .update(updates)
-        .eq('id', id)  // Keep as string for UUID comparison
+        .eq('id', id)
         .select();
       if (error) throw error;
       return data || [];

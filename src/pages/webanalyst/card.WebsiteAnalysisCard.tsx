@@ -1,5 +1,4 @@
 import { Plus, Eye, Trash2, Tag, Calendar, CalendarClock } from "lucide-react";
-import { KeywordBadgeList } from "@/components/uiBase/readable";
 
 interface WebsiteAnalysis {
   id: string;
@@ -57,7 +56,10 @@ export function WebsiteAnalysisCard({
             </div>
             <div className="flex flex-wrap gap-2">
               {analysis.keywords.map((keyword, index) => (
-                <div key={index} className="badge badge-primary badge-outline badge-sm">
+                <div
+                  key={index}
+                  className="badge badge-primary badge-outline badge-sm"
+                >
                   {keyword}
                 </div>
               ))}
@@ -79,7 +81,9 @@ export function WebsiteAnalysisCard({
                     <CalendarClock className="w-3 h-3" />
                     <span>
                       Zaktualizowano{" "}
-                      {new Date(analysis.updated_at).toLocaleDateString("pl-PL")}
+                      {new Date(analysis.updated_at).toLocaleDateString(
+                        "pl-PL"
+                      )}
                     </span>
                   </div>
                 )}

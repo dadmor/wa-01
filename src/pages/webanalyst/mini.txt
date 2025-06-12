@@ -1,0 +1,70 @@
+<div className="space-y-6">
+<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+  {sortedData.map((analysis) => (
+    <div 
+      key={analysis.id}
+      className="bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200"
+    >
+      <div className="p-6">
+        {/* Header z URL i datą */}
+        <div className="flex justify-between items-start mb-4">
+          <h3 className="text-lg font-semibold text-gray-900 truncate flex-1 mr-2">
+            {analysis.url}
+          </h3>
+          <div className="flex items-center text-sm text-gray-500 whitespace-nowrap">
+            <Calendar className="w-4 h-4 mr-1" />
+            {formatDate(analysis.created_at)}
+          </div>
+        </div>
+
+        {/* Opis */}
+        <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+          {analysis.description}
+        </p>
+
+        {/* Branża */}
+        <div className="mb-4">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+            {analysis.industry}
+          </span>
+        </div>
+
+        {/* Słowa kluczowe */}
+        <div className="mb-6">
+          <div className="flex items-center mb-2">
+            <Tag className="w-4 h-4 mr-1 text-gray-400" />
+            <span className="text-sm font-medium text-gray-700">
+              Słowa kluczowe ({analysis.keywords.length})
+            </span>
+          </div>
+          <div className="text-sm text-gray-600">
+            {formatKeywords(analysis.keywords)}
+          </div>
+        </div>
+
+        {/* Akcje */}
+        <div className="flex flex-col sm:flex-row gap-2 pt-4 border-t border-gray-100">
+          <button 
+            onClick={() => handleViewDetails(analysis.id)}
+            className="flex-1 btn btn-primary btn-sm"
+          >
+            Szczegóły
+          </button>
+          <button 
+            onClick={() => handleNewStrategy(analysis.id)}
+            className="flex-1 btn btn-outline btn-sm"
+          >
+            Nowa strategia
+          </button>
+          <button 
+            onClick={() => handleDelete(analysis.id, analysis.url)}
+            className="btn btn-error btn-sm sm:w-auto"
+          >
+            Usuń
+          </button>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+</div>

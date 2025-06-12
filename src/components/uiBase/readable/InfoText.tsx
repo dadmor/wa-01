@@ -16,7 +16,7 @@ export function InfoText({
 }: InfoTextProps) {
   const sizeClasses = {
     sm: {
-      title: "scroll-m-20 text-2xl font-semibold tracking-tight",
+      title: "scroll-m-20 text-lg font-semibold tracking-tight",
       subtitle: "text-sm text-muted-foreground",
       spacing: "space-y-2",
     },
@@ -39,7 +39,9 @@ export function InfoText({
   };
 
   return (
-    <div className={`${sizeClasses[size].spacing} ${alignClasses[align]} ${className}`}>
+    <div
+      className={`${sizeClasses[size].spacing} ${alignClasses[align]} ${className}`}
+    >
       <h1 className={sizeClasses[size].title}>{title}</h1>
       <p className={sizeClasses[size].subtitle}>{subtitle}</p>
     </div>

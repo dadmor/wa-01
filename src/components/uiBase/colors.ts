@@ -31,6 +31,14 @@ export const cardColors = {
     titleColor: "text-red-700",
     valueColor: "text-red-700/90"
   },
+  neutral: {
+    bg: "bg-gray-400/10",
+    border: "border-gray-300/50",
+    iconBg: "bg-gray-700/10",
+    iconColor: "text-gray-600",
+    titleColor: "text-gray-500",
+    valueColor: "text-gray-700/90"
+  },
   purple: {
     bg: "bg-purple-400/10",
     border: "border-purple-300/50",
