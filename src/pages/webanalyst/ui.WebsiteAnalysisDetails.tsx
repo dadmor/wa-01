@@ -159,38 +159,59 @@ export default function WebsiteAnalysisDetails() {
                   />
 
                   {/* Quick Stats */}
+                  {/* Quick Stats */}
                   <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
-                      <div className="flex items-center gap-2 mb-2">
-                        <TrendingUp className="w-5 h-5 text-blue-600" />
-                        <span className="text-sm font-medium text-blue-700">Performance</span>
-                      </div>
-                      <div className="text-2xl font-bold text-blue-900">87%</div>
-                    </div>
+                    <DetailedCard
+                      variant="gradient"
+                      color="info"
+                      icon={<TrendingUp />}
+                    >
+                      <InfoText
+                        title="87%"
+                        subtitle="Performance"
+                        size="sm"
+                        reverse={true}
+                      />
+                    </DetailedCard>
 
-                    <div className="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
-                      <div className="flex items-center gap-2 mb-2">
-                        <BarChart3 className="w-5 h-5 text-green-600" />
-                        <span className="text-sm font-medium text-green-700">SEO Score</span>
-                      </div>
-                      <div className="text-2xl font-bold text-green-900">92%</div>
-                    </div>
+                    <DetailedCard
+                      variant="gradient"
+                      color="success"
+                      icon={<BarChart3 />}
+                    >
+                      <InfoText
+                        title="92%"
+                        subtitle="SEO Score"
+                        size="sm"
+                        reverse={true}
+                      />
+                    </DetailedCard>
 
-                    <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Users className="w-5 h-5 text-purple-600" />
-                        <span className="text-sm font-medium text-purple-700">Keywords</span>
-                      </div>
-                      <div className="text-2xl font-bold text-purple-900">{analysis.keywords.length}</div>
-                    </div>
+                    <DetailedCard
+                      variant="gradient"
+                      color="primary"
+                      icon={<Users />}
+                    >
+                      <InfoText
+                        title={analysis.keywords.length.toString()}
+                        subtitle="Keywords"
+                        size="sm"
+                        reverse={true}
+                      />
+                    </DetailedCard>
 
-                    <div className="bg-gradient-to-r from-amber-50 to-amber-100 p-4 rounded-lg border border-amber-200">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Activity className="w-5 h-5 text-amber-600" />
-                        <span className="text-sm font-medium text-amber-700">Ruch</span>
-                      </div>
-                      <div className="text-2xl font-bold text-amber-900">+15.7%</div>
-                    </div>
+                    <DetailedCard
+                      variant="gradient"
+                      color="warning"
+                      icon={<Activity />}
+                    >
+                      <InfoText
+                        title="+15.7%"
+                        subtitle="Ruch"
+                        size="sm"
+                        reverse={true}
+                      />
+                    </DetailedCard>
                   </div>
 
                   {/* Analysis Details */}
@@ -239,14 +260,12 @@ export default function WebsiteAnalysisDetails() {
               {/* Marketing Strategies Section */}
               <section>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-                  <div>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                      Strategie marketingowe ({strategies?.length || 0})
-                    </h2>
-                    <p className="text-gray-600">
-                      Lista wszystkich strategii marketingowych utworzonych dla tej analizy
-                    </p>
-                  </div>
+                  <InfoText
+                    title="Strategie marketingowe"
+                    subtitle=""
+                    size="md"
+                    align="left"
+                  />
                   <button
                     onClick={handleNewStrategy}
                     className="btn btn-primary flex items-center gap-2 whitespace-nowrap"
@@ -258,13 +277,14 @@ export default function WebsiteAnalysisDetails() {
 
                 {strategiesLoading && <LoadingSpinner />}
 
-                {(!strategies || strategies.length === 0) && !strategiesLoading && (
-                  <EmptyState
-                    title="Brak strategii marketingowych"
-                    description="Nie utworzono jeszcze żadnych strategii marketingowych dla tej analizy strony."
-                    icon={<Target className="w-12 h-12" />}
-                  />
-                )}
+                {(!strategies || strategies.length === 0) &&
+                  !strategiesLoading && (
+                    <EmptyState
+                      title="Brak strategii marketingowych"
+                      description="Nie utworzono jeszcze żadnych strategii marketingowych dla tej analizy strony."
+                      icon={<Target className="w-12 h-12" />}
+                    />
+                  )}
 
                 {strategies && strategies.length > 0 && (
                   <div className="space-y-6">
