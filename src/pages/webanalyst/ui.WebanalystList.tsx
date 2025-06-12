@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 import { Lightbulb, Rocket, Tag, TrendingUp } from "lucide-react";
 import { Header } from "../layout.Header";
 import { Footer } from "../layout.Footer";
-import { NotificationCard } from "@/components/uiBase/readable/NotyficationCard";
 
 export const routeConfig = {
   path: "/webanalyst/list",
@@ -83,31 +82,36 @@ export default function WebsiteAnalysisList() {
               </div>
             </div>
           </section>
-         
 
           {/* Stats Cards */}
           <section className="pb-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <NotificationCard
-                variant="info"
-                icon={TrendingUp}
-                title="Analizowanych stron"
-                value={data?.length || 0}
-              />
+              <DetailedCard color="info" icon={<TrendingUp />}>
+                <InfoText
+                  title={`${data?.length || 0}`}
+                  subtitle="Strategii utworzonych"
+                  size="md"
+                  reverse={true}
+                />
+              </DetailedCard>
 
-              <NotificationCard
-                variant="success"
-                icon={Lightbulb}
-                title="Strategii utworzonych"
-                value={0}
-              />
+              <DetailedCard color="success" icon={<Lightbulb />}>
+                <InfoText
+                  title="0"
+                  subtitle="Strategii utworzonych"
+                  size="md"
+                  reverse={true}
+                />
+              </DetailedCard>
 
-              <NotificationCard
-                variant="warning"
-                icon={Rocket}
-                title="Kampanii uruchomionych"
-                value={0}
-              />
+              <DetailedCard color="warning" icon={<Rocket />}>
+                <InfoText
+                  title="0"
+                  subtitle="Kampanii uruchomionych"
+                  size="md"
+                  reverse={true}
+                />
+              </DetailedCard>
             </div>
           </section>
 

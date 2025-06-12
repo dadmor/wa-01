@@ -1,58 +1,92 @@
-export const cardColors = {
+// src/utils/theme/colors.ts
+export type ThemeColor =
+  | "primary"
+  | "secondary"
+  | "accent"
+  | "info"
+  | "success"
+  | "warning"
+  | "error"
+  | "neutral";
+
+export interface ColorScheme {
+  bg: string;
+  border: string;
+  iconBg: string;
+  iconColor: string;
+  titleColor: string;
+  valueColor: string;
+}
+
+// Kolory używające systemu Daisy UI z spójnym stylem
+export const daisyThemeColors: Record<ThemeColor, ColorScheme> = {
+  primary: {
+    bg: "bg-primary-content/5",
+    border: "border-primary/20",
+    iconBg: "bg-primary-content/20",
+    iconColor: "text-primary",
+    titleColor: "text-primary",
+    valueColor: "text-primary/80",
+  },
+  secondary: {
+    bg: "bg-secondary-content/5",
+    border: "border-secondary/20",
+    iconBg: "bg-secondary-content/20",
+    iconColor: "text-secondary",
+    titleColor: "text-secondary",
+    valueColor: "text-secondary/80",
+  },
+  accent: {
+    bg: "bg-accent-content/5",
+    border: "border-accent/20",
+    iconBg: "bg-accent-content/20",
+    iconColor: "text-accent",
+    titleColor: "text-accent",
+    valueColor: "text-accent/80",
+  },
   info: {
-    bg: "bg-blue-400/10",
-    border: "border-blue-300/50",
-    iconBg: "bg-blue-700/10",
-    iconColor: "text-blue-600",
-    titleColor: "text-blue-700",
-    valueColor: "text-blue-700/90"
+    bg: "bg-info-content/5",
+    border: "border-info/20",
+    iconBg: "bg-info-content/20",
+    iconColor: "text-info",
+    titleColor: "text-info",
+    valueColor: "text-info/80",
   },
   success: {
-    bg: "bg-green-400/10",
-    border: "border-green-300/50",
-    iconBg: "bg-green-700/10",
-    iconColor: "text-green-600",
-    titleColor: "text-green-700",
-    valueColor: "text-green-700/90"
+    bg: "bg-success-content/5",
+    border: "border-success/20",
+    iconBg: "bg-success-content/20",
+    iconColor: "text-success",
+    titleColor: "text-success",
+    valueColor: "text-success/80",
   },
   warning: {
-    bg: "bg-yellow-400/10",
-    border: "border-yellow-300/50",
-    iconBg: "bg-yellow-700/10",
-    iconColor: "text-yellow-600",
-    titleColor: "text-yellow-700",
-    valueColor: "text-yellow-700/90"
+    bg: "bg-warning-content/5",
+    border: "border-warning/20",
+    iconBg: "bg-warning-content/20",
+    iconColor: "text-warning",
+    titleColor: "text-warning",
+    valueColor: "text-warning/80",
   },
   error: {
-    bg: "bg-red-400/10",
-    border: "border-red-300/50",
-    iconBg: "bg-red-700/10",
-    iconColor: "text-red-600",
-    titleColor: "text-red-700",
-    valueColor: "text-red-700/90"
+    bg: "bg-error-content/5",
+    border: "border-error/20",
+    iconBg: "bg-error-content/20",
+    iconColor: "text-error",
+    titleColor: "text-error",
+    valueColor: "text-error/80",
   },
   neutral: {
-    bg: "bg-gray-400/10",
-    border: "border-gray-300/50",
-    iconBg: "bg-gray-700/10",
-    iconColor: "text-gray-600",
-    titleColor: "text-gray-500",
-    valueColor: "text-gray-700/90"
+    bg: "bg-base-200/30",
+    border: "border-base-300",
+    iconBg: "bg-base-300/70",
+    iconColor: "text-base-content/70",
+    titleColor: "text-base-content",
+    valueColor: "text-base-content/80",
   },
-  purple: {
-    bg: "bg-purple-400/10",
-    border: "border-purple-300/50",
-    iconBg: "bg-gray-700/10",
-    iconColor: "text-purple-600",
-    titleColor: "text-purple-700",
-    valueColor: "text-purple-700/90"
-  },
-  orange: {
-    bg: "bg-orange-400/10",
-    border: "border-orange-300/50",
-    iconBg: "bg-orange-700/10",
-    iconColor: "text-orange-600",
-    titleColor: "text-orange-700",
-    valueColor: "text-orange-700/90"
-  }
+};
+
+// Funkcja pomocnicza do pobierania kolorów
+export const getThemeColors = (color: ThemeColor): ColorScheme => {
+  return daisyThemeColors[color];
 };

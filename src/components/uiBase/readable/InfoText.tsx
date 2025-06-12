@@ -4,6 +4,7 @@ interface InfoTextProps {
   subtitle: string;
   size?: "sm" | "md" | "lg";
   align?: "left" | "center" | "right";
+  reverse?: boolean;
   className?: string;
 }
 
@@ -12,21 +13,22 @@ export function InfoText({
   subtitle,
   size = "md",
   align = "left",
+  reverse = false,
   className = "",
 }: InfoTextProps) {
   const sizeClasses = {
     sm: {
-      title: "scroll-m-20 text-lg font-semibold tracking-tight",
+      title: "text-lg font-semibold",
       subtitle: "text-sm text-muted-foreground",
       spacing: "space-y-2",
     },
     md: {
-      title: "scroll-m-20 text-3xl font-semibold tracking-tight",
+      title: "text-3xl font-semibold",
       subtitle: "text-base text-muted-foreground",
       spacing: "space-y-3",
     },
     lg: {
-      title: "scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl",
+      title: "text-4xl font-bold lg:text-5xl",
       subtitle: "text-xl text-muted-foreground",
       spacing: "space-y-4",
     },
@@ -40,9 +42,13 @@ export function InfoText({
 
   return (
     <div
-      className={`${sizeClasses[size].spacing} ${alignClasses[align]} ${className}`}
+      className={`flex flex-col ${sizeClasses[size].spacing} ${
+        alignClasses[align]
+      } ${reverse ? "flex-col-reverse" : ""} ${className}`}
     >
-      <h1 className={sizeClasses[size].title}>{title}</h1>
+      <h1 className={`scroll-m-20 tracking-tight ${sizeClasses[size].title}`}>
+        {title}
+      </h1>
       <p className={sizeClasses[size].subtitle}>{subtitle}</p>
     </div>
   );
