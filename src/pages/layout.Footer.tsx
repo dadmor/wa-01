@@ -3,7 +3,7 @@ import { Heart, Mail, Phone, MapPin, Github, Twitter, Linkedin, Globe } from "lu
 
 export const Footer = () => {
   return (
-    <footer className="bg-base-200 text-base-content">
+    <footer className="bg-base-200 text-base-content pt-10">
       {/* Main Footer Content */}
       <div className="p-10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
@@ -101,7 +101,7 @@ export const Footer = () => {
      
 
       {/* Bottom Footer */}
-      <div className="footer-center p-6 bg-base-300 text-base-content border-t border-neutral-300" >
+      <div className="mt-20 footer-center p-6 bg-base-300 text-base-content border-t border-neutral-300" >
         <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto">
           <div className="flex items-center gap-1 text-sm">
             <span>© 2025 Logotype. Wszystkie prawa zastrzeżone.</span>

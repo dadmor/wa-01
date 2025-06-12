@@ -12,7 +12,8 @@ export const BaseLayout: React.FC<BaseLayoutProps> = ({
   menuComponent,
 }) => {
   return (
-    <div className="max-w-6xl mx-auto space-y-8">
+
+    <div className="max-w-6xl mx-auto space-y-8 pb-10 ">
       {menuComponent}
       {children}
     </div>

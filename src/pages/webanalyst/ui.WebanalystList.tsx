@@ -89,7 +89,7 @@ export default function WebsiteAnalysisList() {
               <DetailedCard color="info" icon={<TrendingUp />}>
                 <InfoText
                   title={`${data?.length || 0}`}
-                  subtitle="Strategii utworzonych"
+                  subtitle="Przeanalizowanych stron"
                   size="md"
                   reverse={true}
                 />
