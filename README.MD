@@ -1,49 +1,47 @@
-# refine-supabase
+# LLM Generated Test Code
 
-<div align="center" style="margin: 30px;">
-    <a href="https://refine.dev">
-    <img src="https://refine.ams3.cdn.digitaloceanspaces.com/refine_logo.png"  align="center" />
-    </a>
-</div>
-<br/>
+Kod testów wygenerowany przy pomocy dużych modeli językowych (LLM).
 
-This [refine](https://github.com/pankod/refine) project was generated with [superplate](https://github.com/pankod/refine).
+## Opis
 
-## Getting Started
+Ten projekt zawiera kod wygenerowany przez duże modele językowe (LLM), przeznaczony do przetestowania przez inne LLM. Kod został stworzony jako materiał testowy do weryfikacji możliwości analizy i oceny kodu przez sztuczną inteligencję.
 
-**refine** is a React-based framework for building data-intensive applications in no time ✨
+## Licencja
 
-Refine offers lots of out-of-the box functionality for rapid development, without compromising extreme customizability. Use-cases include, but are not limited to admin panels, B2B applications and dashboards.
+Ten projekt jest objęty licencją GNU General Public License v3.0 (GPL-3.0).
 
-## Available Scripts
+### GNU General Public License v3.0
 
-### Running the development server.
+Ten program jest wolnym oprogramowaniem: możesz go rozpowszechniać i/lub modyfikować zgodnie z warunkami Powszechnej Licencji Publicznej GNU opublikowanej przez Free Software Foundation, w wersji 3 tej Licencji lub (według Twojego wyboru) dowolnej późniejszej wersji.
 
-```bash
-    yarn dev
-```
+Ten program jest rozpowszechniany w nadziei, że będzie użyteczny, ale BEZ JAKIEJKOLWIEK GWARANCJI; nawet bez domniemanej gwarancji PRZYDATNOŚCI HANDLOWEJ lub PRZYDATNOŚCI DO OKREŚLONEGO CELU. Zobacz Powszechną Licencję Publiczną GNU, aby uzyskać więcej informacji.
 
-### Building for production.
+Powinieneś otrzymać kopię Powszechnej Licencji Publicznej GNU wraz z tym programem. Jeśli nie, zobacz <https://www.gnu.org/licenses/>.
 
-```bash
-    yarn build
-```
+### Podsumowanie licencji GPL-3.0
 
-### Running the production server.
+Licencja GPL-3.0 oznacza, że:
 
-```bash
-    yarn start
-```
+- ✅ **Wolność używania** - Możesz używać tego oprogramowania w dowolnym celu
+- ✅ **Wolność analizowania** - Możesz badać, jak działa program i zmieniać go
+- ✅ **Wolność udostępniania** - Możesz rozpowszechniać kopie oryginalnego programu
+- ✅ **Wolność ulepszania** - Możesz rozpowszechniać kopie swoich zmodyfikowanych wersji
 
-## Learn More
+### Ważne wymagania
 
-To learn more about **refine**, please check out the [Documentation](https://refine.dev/docs)
+- 📋 Wszelkie rozpowszechniane modyfikacje muszą być również licencjonowane na GPL-3.0
+- 📋 Kod źródłowy musi być udostępniony przy dystrybucji oprogramowania
+- 📋 Kopia licencji i informacja o prawach autorskich musi być dołączona do oprogramowania
+- 📋 Zmiany wprowadzone w kodzie muszą być udokumentowane
 
-- **Ant Design** [Docs](https://refine.dev/docs/ui-frameworks/antd/tutorial/)
-- **React Router** [Docs](https://refine.dev/docs/core/providers/router-provider/)
-- **Supabase Data Provider** [Docs](https://refine.dev/docs/core/providers/data-provider/#overview)
+Pełny tekst licencji dostępny pod adresem: https://www.gnu.org/licenses/gpl-3.0.html
 
+## Uwaga
 
-## License
+Ten kod został wygenerowany przez AI/LLM i powinien zostać sprawdzony oraz przetestowany przed użyciem w środowisku produkcyjnym.
 
-MIT
+---
+
+Copyright (C) 2025
+
+Ten program jest wolnym oprogramowaniem na warunkach licencji GPL-3.0.
